@@ -78,16 +78,17 @@ class StarTrail {
     }
 }
 
-// 平滑滚动导航
+// 平滑滚动到顶部
 class SmoothScroll {
     constructor() {
         this.init();
     }
 
     init() {
-        const navLinks = document.querySelectorAll('.nav-link');
+        // 为所有内部链接添加平滑滚动
+        const internalLinks = document.querySelectorAll('a[href^="#"]');
         
-        navLinks.forEach(link => {
+        internalLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
@@ -99,31 +100,6 @@ class SmoothScroll {
                         block: 'start'
                     });
                 }
-            });
-        });
-    }
-}
-
-// 移动端菜单切换
-class MobileMenu {
-    constructor() {
-        this.hamburger = document.querySelector('.hamburger');
-        this.navMenu = document.querySelector('.nav-menu');
-        this.init();
-    }
-
-    init() {
-        this.hamburger.addEventListener('click', () => {
-            this.hamburger.classList.toggle('active');
-            this.navMenu.classList.toggle('active');
-        });
-
-        // 点击菜单项后关闭菜单
-        const navLinks = document.querySelectorAll('.nav-link');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                this.hamburger.classList.remove('active');
-                this.navMenu.classList.remove('active');
             });
         });
     }
@@ -151,32 +127,12 @@ class ScrollAnimation {
         }, observerOptions);
 
         // 观察需要动画的元素
-        const animatedElements = document.querySelectorAll('.project-card, .timeline-item, .contact-item, .stat-item');
+        const animatedElements = document.querySelectorAll('.social-card, .education-item, .skill-category, .stat-item');
         animatedElements.forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
-        });
-    }
-}
-
-// 导航栏滚动效果
-class NavbarScroll {
-    constructor() {
-        this.navbar = document.querySelector('.navbar');
-        this.init();
-    }
-
-    init() {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 100) {
-                this.navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                this.navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                this.navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                this.navbar.style.boxShadow = 'none';
-            }
         });
     }
 }
@@ -217,42 +173,42 @@ document.head.appendChild(style);
 document.addEventListener('DOMContentLoaded', () => {
     new StarTrail();
     new SmoothScroll();
-    new MobileMenu();
     new ScrollAnimation();
-    new NavbarScroll();
 });
 
 // 添加一些交互效果
 document.addEventListener('DOMContentLoaded', () => {
-    // 按钮悬停效果
-    const buttons = document.querySelectorAll('.btn');
-    buttons.forEach(btn => {
-        btn.addEventListener('mouseenter', () => {
-            btn.style.transform = 'translateY(-2px)';
-        });
-        
-        btn.addEventListener('mouseleave', () => {
-            btn.style.transform = 'translateY(0)';
-        });
-    });
+    // 社交媒体卡片现在通过CSS处理悬停效果，无需JavaScript
 
-    // 项目卡片悬停效果
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-
-    // 联系项目悬停效果
-    const contactItems = document.querySelectorAll('.contact-item');
-    contactItems.forEach(item => {
+    // 教育经历项目悬停效果
+    const educationItems = document.querySelectorAll('.education-item');
+    educationItems.forEach(item => {
         item.addEventListener('mouseenter', () => {
-            item.style.transform = 'translateY(-5px) scale(1.02)';
+            item.style.transform = 'translateY(-3px) scale(1.01)';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // 技能分类悬停效果
+    const skillCategories = document.querySelectorAll('.skill-category');
+    skillCategories.forEach(category => {
+        category.addEventListener('mouseenter', () => {
+            category.style.transform = 'translateY(-3px) scale(1.01)';
+        });
+        
+        category.addEventListener('mouseleave', () => {
+            category.style.transform = 'translateY(0) scale(1)';
+        });
+    });
+
+    // 统计项目悬停效果
+    const statItems = document.querySelectorAll('.stat-item');
+    statItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transform = 'translateY(-3px) scale(1.05)';
         });
         
         item.addEventListener('mouseleave', () => {
