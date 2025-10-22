@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jade Cheng - 个人网站</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Jade Cheng</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">关于我</a></li>
+                <li><a href="#academic" class="nav-link">学术项目</a></li>
+                <li><a href="#internship" class="nav-link">实习项目</a></li>
+                <li><a href="#contact" class="nav-link">联系方式</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页横幅 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">你好，我是 <span class="gradient-text">Jade Cheng</span></h1>
+            <p class="hero-subtitle">数据科学家 | 机器学习工程师 | 终身学习者</p>
+            <div class="hero-buttons">
+                <a href="#about" class="btn btn-primary">了解更多</a>
+                <a href="#contact" class="btn btn-secondary">联系我</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="profile-card">
+                <div class="profile-image">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我 -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">关于我</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>我是一名充满热情的数据科学家和机器学习工程师，专注于将复杂的数据转化为有价值的洞察。我热爱探索数据背后的故事，并致力于使用先进的技术解决现实世界的问题。通过持续学习和实践，我不断提升自己在数据科学、机器学习和人工智能领域的专业技能。</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <h3>3+</h3>
+                        <p>年经验</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20+</h3>
+                        <p>项目完成</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>5+</h3>
+                        <p>技术栈</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学术项目 -->
+    <section id="academic" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">学术项目</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>深度学习图像识别</h3>
+                    <p>使用CNN和迁移学习技术，开发了一个高精度的图像分类系统，在CIFAR-10数据集上达到了95%的准确率。</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">TensorFlow</span>
+                        <span class="tech-tag">Keras</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>时间序列预测模型</h3>
+                    <p>构建了一个基于LSTM的股票价格预测模型，结合技术指标和宏观经济数据，实现了良好的预测效果。</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">LSTM</span>
+                        <span class="tech-tag">Pandas</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>自然语言处理研究</h3>
+                    <p>开发了一个情感分析系统，使用BERT模型对中文文本进行情感分类，准确率达到88%。</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">BERT</span>
+                        <span class="tech-tag">Transformers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 实习项目 -->
+    <section id="internship" class="section">
+        <div class="container">
+            <h2 class="section-title">实习项目</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>数据科学家实习生</h3>
+                        <h4>科技公司 | 2023年</h4>
+                        <p>负责用户行为数据分析，构建推荐系统，提升了用户参与度30%。使用Python、SQL和机器学习算法进行数据挖掘和模型开发。</p>
+                        <ul>
+                            <li>开发了用户画像系统</li>
+                            <li>优化了推荐算法</li>
+                            <li>创建了数据可视化仪表板</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <h3>机器学习工程师实习生</h3>
+                        <h4>AI初创公司 | 2022年</h4>
+                        <p>参与开发智能客服系统，使用NLP技术处理客户咨询，自动化处理率达到85%。</p>
+                        <ul>
+                            <li>训练了意图识别模型</li>
+                            <li>优化了对话流程</li>
+                            <li>集成了API接口</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">联系方式</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <p>linkedin.com/in/jadecheng</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h4>GitHub</h4>
+                            <p>github.com/jadecheng</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h4>LeetCode</h4>
+                            <p>leetcode.com/jadecheng</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div>
+                            <h4>Udemy课程</h4>
+                            <p>udemy.com/user/jadecheng</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="resume-section">
+                    <h3>简历下载</h3>
+                    <div class="resume-links">
+                        <a href="#" class="resume-link">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>数据科学家简历</span>
+                        </a>
+                        <a href="#" class="resume-link">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>数据分析师简历</span>
+                        </a>
+                        <a href="#" class="resume-link">
+                            <i class="fas fa-file-pdf"></i>
+                            <span>机器学习工程师简历</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="personal-info">
+                    <div class="info-section">
+                        <h3>教育经历</h3>
+                        <div class="education-item">
+                            <h4>计算机科学硕士</h4>
+                            <p>某某大学 | 2020-2022</p>
+                        </div>
+                        <div class="education-item">
+                            <h4>数据科学学士</h4>
+                            <p>某某大学 | 2016-2020</p>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>我的爱好</h3>
+                        <div class="hobbies">
+                            <span class="hobby-tag">摄影</span>
+                            <span class="hobby-tag">阅读</span>
+                            <span class="hobby-tag">编程</span>
+                            <span class="hobby-tag">旅行</span>
+                            <span class="hobby-tag">音乐</span>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>我的宠物</h3>
+                        <div class="pet-info">
+                            <div class="pet-card">
+                                <i class="fas fa-cat"></i>
+                                <h4>小橘</h4>
+                                <p>一只可爱的橘猫，喜欢晒太阳和玩毛线球</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Jade Cheng. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <!-- 鼠标跟随星星 -->
+    <div id="stars-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
