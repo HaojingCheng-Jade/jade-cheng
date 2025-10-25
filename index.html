@@ -139,6 +139,7 @@
             <section class="about-section">
                 <h2 class="section-title">About Me 😃</h2>
                 <div class="about-content">
+                    <p style="font-size: 1.1rem; color: #2c3e50; margin-bottom: 2rem; text-align: center; font-weight: 500;">Hi, this is Jade！I am a first-year Master's student in Statistical Science at Duke University, with an expected graduation date of <strong>May 2027</strong>.</p>
                     <h3 class="about-subtitle">When a Netflix Show Sparked a Career Path</h3>
                     <p>My data science journey started with an unexpected mentor: the TV series House of Cards. I was captivated when I discovered how Netflix used millions of user interactions—from pauses and searches to ratings—to shape everything from casting choices to plot direction. It was my "aha!" moment: raw data could tell compelling stories and drive powerful business strategies.</p>
                     
@@ -159,58 +160,152 @@
                 </div>
             </section>
 
-            <!-- 教育经历 -->
-            <section class="education-section">
-                <h2 class="section-title">教育经历</h2>
-                <div class="education-timeline">
-                    <div class="education-item">
-                        <div class="education-year">2020-2022</div>
-                        <div class="education-content">
-                            <h3>计算机科学硕士</h3>
-                            <p>Duke University</p>
-                            <span class="education-location">Durham, NC</span>
+            <!-- 我的项目 -->
+            <section class="projects-section">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card" onclick="openProjectModal('china-mobile')">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>China Mobile Analytics</h3>
+                            <p>National Travel Pattern Analysis</p>
+                            <span class="project-tech">Python • Power BI • SQL</span>
                         </div>
                     </div>
-                    <div class="education-item">
-                        <div class="education-year">2016-2020</div>
-                        <div class="education-content">
-                            <h3>统计学学士</h3>
-                            <p>Duke University</p>
-                            <span class="education-location">Durham, NC</span>
+                    
+                    <div class="project-card" onclick="openProjectModal('icbc-internship')">
+                        <div class="project-icon">
+                            <i class="fas fa-bank"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>ICBC Data Analysis</h3>
+                            <p>Product-Focused Analytics</p>
+                            <span class="project-tech">SQL • A/B Testing • Python</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" onclick="openProjectModal('news-recommendation')">
+                        <div class="project-icon">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>News Recommendation</h3>
+                            <p>Intelligent Content System</p>
+                            <span class="project-tech">LLMs • Flask • ML</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card" onclick="openProjectModal('duke-projects')">
+                        <div class="project-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="project-info">
+                            <h3>Duke Research</h3>
+                            <p>Statistical Science Projects</p>
+                            <span class="project-tech">R • Statistics • Research</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- 技能专长 -->
+            <!-- 我的工具包 -->
             <section class="skills-section">
-                <h2 class="section-title">技能专长</h2>
+                <h2 class="section-title">My Toolkit🛠️</h2>
                 <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>编程语言</h3>
+                    <div class="skill-category skill-category-language">
+                        <h3>Language</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">R</span>
-                            <span class="skill-tag">SQL</span>
-                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag skill-tag-language">Python</span>
+                            <span class="skill-tag skill-tag-language">SQL</span>
+                            <span class="skill-tag skill-tag-language">R</span>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3>机器学习</h3>
+                    <div class="skill-category skill-category-ml">
+                        <h3>Machine Learning</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">TensorFlow</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Scikit-learn</span>
-                            <span class="skill-tag">Keras</span>
+                            <span class="skill-tag skill-tag-ml">TensorFlow</span>
+                            <span class="skill-tag skill-tag-ml">PyTorch</span>
+                            <span class="skill-tag skill-tag-ml">Scikit-learn</span>
+                            <span class="skill-tag skill-tag-ml">Keras</span>
                         </div>
                     </div>
-                    <div class="skill-category">
-                        <h3>数据分析</h3>
+                    <div class="skill-category skill-category-library">
+                        <h3>Library</h3>
                         <div class="skill-tags">
-                            <span class="skill-tag">Pandas</span>
-                            <span class="skill-tag">NumPy</span>
-                            <span class="skill-tag">Matplotlib</span>
-                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag skill-tag-library">Pandas</span>
+                            <span class="skill-tag skill-tag-library">NumPy</span>
+                            <span class="skill-tag skill-tag-library">Matplotlib</span>
+                            <span class="skill-tag skill-tag-library">Seaborn</span>
+                        </div>
+                    </div>
+                    <div class="skill-category skill-category-viz">
+                        <h3>Data Visualization</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag skill-tag-viz">Power BI</span>
+                            <span class="skill-tag skill-tag-viz">Tableau</span>
+                        </div>
+                    </div>
+                    <div class="skill-category skill-category-llm">
+                        <h3>LLM</h3>
+                        <div class="skill-tags">
+                            <span class="skill-tag skill-tag-llm">Prompt</span>
+                            <span class="skill-tag skill-tag-llm">API</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Deep Dive 学习模块 -->
+            <section class="deepdive-section">
+                <h2 class="section-title">Deep Dive 😎(Online Courses)</h2>
+                <div class="course-links">
+                    <a href="https://www.udacity.com/enrollment/ud257" target="_blank" class="course-link course-link-abtest">
+                        <span class="course-icon">🧪</span>
+                        <div class="course-info">
+                            <span class="course-title">A/B Testing</span>
+                            <span class="course-platform">Udacity</span>
+                        </div>
+                    </a>
+                    <a href="https://www.udacity.com/enrollment/ud170" target="_blank" class="course-link course-link-pandas">
+                        <span class="course-icon">🐼</span>
+                        <div class="course-info">
+                            <span class="course-title">NumPy & Pandas</span>
+                            <span class="course-platform">Udacity</span>
+                        </div>
+                    </a>
+                    <a href="https://www.udemy.com/course/python-for-data-science-and-machine-learning-bootcamp/" target="_blank" class="course-link course-link-ml">
+                        <span class="course-icon">🤖</span>
+                        <div class="course-info">
+                            <span class="course-title">Machine Learning</span>
+                            <span class="course-platform">Udemy</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- My Life & Kitty 板块 -->
+            <section class="kitty-section">
+                <h2 class="section-title">My Life & Kitty🐱</h2>
+                <div class="kitty-modules">
+                    <div class="kitty-module kitty-module-1">
+                        <div class="kitty-photo">
+                            <img src="kitty1.jpg" alt="OFFER the Kitty" />
+                        </div>
+                        <div class="kitty-info">
+                            <h3>Kitty</h3>
+                            <p>Hi! My name is OFFER</p>
+                        </div>
+                    </div>
+                    
+                    <div class="kitty-module kitty-module-2">
+                        <div class="kitty-photo">
+                            <img src="kitty2.jpg" alt="Welcome to my world" />
+                        </div>
+                        <div class="kitty-info">
+                            <h3>My World</h3>
+                            <p>Welcome to my world!</p>
                         </div>
                     </div>
                 </div>
@@ -225,6 +320,14 @@
 
     <!-- 鼠标跟随星星 -->
     <div id="stars-container"></div>
+
+    <!-- 项目模态框 -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProjectModal()">&times;</span>
+            <div id="modalContent"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
