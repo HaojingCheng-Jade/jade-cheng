@@ -312,3 +312,209 @@ window.onclick = function(event) {
     }
 }
 
+// 项目详情面板功能
+const projectDetails = {
+    'mobile-behavior': {
+        title: '📊 Mobile User Behavior Data Analysis and Visualization Project',
+        subtitle: 'Company: China Mobile • Time: June 2024 - Aug 2024',
+        coverImage: 'mobile_user_behavior_dashboard.png',
+        overview: 'An enterprise-level big data project completed at China Mobile Information Technology Center, building a comprehensive mobile user behavior data analysis platform. The two-week project processed massive user behavior data, achieving complete transformation from raw data to business insights through an end-to-end data pipeline.',
+        technologies: ['Big Data', 'Python', 'SQL', 'Data Visualization', 'Hadoop', 'Spark'],
+        techStack: {
+            'Data Collection Layer': ['Kafka', 'Maxwell', 'Flume', 'Redis'],
+            'Data Storage Layer': ['Hadoop HDFS', 'Hive', 'MySQL'],
+            'Data Processing Layer': ['Spark', 'Custom UDF Functions', 'DataX'],
+            'Data Visualization': ['PowerBI'],
+            'Infrastructure': ['Virtual Machine Cluster', 'Linux Environment']
+        },
+        dataArchitecture: {
+            'ODS': {
+                name: 'ODS Layer',
+                function: 'Raw data storage from logs',
+                content: '<strong>Tables:</strong> user_activities_ods, user_travels_ods, aoi_ods<br><strong>Purpose:</strong> Maintains original structure, supports traceability'
+            },
+            'DWD': {
+                name: 'DWD Layer',
+                function: 'Data cleaning & quality assurance',
+                content: '<strong>Processing:</strong> Remove outliers • Standardize formats • Parse JSON<br><strong>Output:</strong> Cleaned, structured data for analysis'
+            },
+            'DWS': {
+                name: 'DWS Layer',
+                function: 'Data aggregation & wide tables',
+                content: '<strong>Dimensions:</strong> User/Time/Business levels<br><strong>Metrics:</strong> DAU/MAU, session duration, click-through rates'
+            },
+            'DIM': {
+                name: 'DIM Layer',
+                function: 'Centralized dimension tables',
+                content: '<strong>Tables:</strong> dim_user (demographics) • dim_aoi (spot info) • dim_time (date/holiday) • dim_device (equipment)'
+            },
+            'ADS': {
+                name: 'ADS Layer',
+                function: 'Business application data',
+                content: '<strong>Output:</strong> ads_user_behavior_profile • ads_travel_pattern_daily • ads_scenic_spot_ranking • ads_transportation_analysis'
+            }
+        },
+        dataModel: {
+            'users': {
+                description: 'User Dimension Table',
+                fields: ['id: Unique user identifier', 'age: Age segmentation', 'mobile: Mobile number (desensitized)'],
+                purpose: 'User basic attribute management, supporting user segmentation analysis'
+            },
+            'aoi': {
+                description: 'Scenic Spot Information Table',
+                fields: ['id: Scenic spot ID', 'Spot Name: Attraction name', 'Region: Province/City location', 'Spot Level: A-level scenic spot classification', 'Longitude/Latitude: Geographic coordinates'],
+                purpose: 'Geographic location analysis, scenic spot popularity ranking'
+            },
+            'user_activities_0': {
+                description: 'User Behavior Table',
+                fields: ['user_id: User ID', 'aoi_id: Scenic spot ID', 'activity_time: Activity timestamp', 'activity_duration: Activity duration', 'activity_time_date: Activity date'],
+                purpose: 'User engagement analysis, behavior pattern mining'
+            },
+            'user_travels_0': {
+                description: 'Travel Records Table',
+                fields: ['user_id: User ID', 'travel_mode: Transportation mode', 'travel_time: Travel timestamp', 'travel_time_date: Travel date'],
+                purpose: 'Travel preference analysis, transportation mode statistics'
+            }
+        },
+        impact: 'Successfully processed terabytes of user behavior data, providing real-time insights for business decision-making and enhancing user experience optimization.',
+        duration: 'two months',
+        role: 'Data Engineer & Analyst'
+    },
+    'fx-trading-strategy': {
+        title: '💹 Dynamic Strategy Selection for FX & Commodity Futures Trading',
+        subtitle: 'Quantitative Trading Analysis',
+        coverImage: 'fx_trading_strategy_cover.png',
+        overview: 'A quantitative trading strategy project focused on developing dynamic strategy selection models for foreign exchange (FX) and commodity futures trading. This project involved comprehensive market analysis, risk management, and algorithmic trading system development to optimize trading performance across different market conditions.',
+        technologies: ['Python', 'Quantitative Analysis', 'Risk Management', 'Algorithmic Trading', 'Market Analysis'],
+        impact: 'Developed robust trading strategies that demonstrated consistent performance across various market regimes, with emphasis on risk-adjusted returns and capital preservation.',
+        duration: '3 months',
+        role: 'Quantitative Analyst'
+    }
+};
+
+function openProjectDetail(projectId) {
+    const detailPanel = document.getElementById('projectDetailPanel');
+    const detailContent = document.getElementById('detailPanelContent');
+    const project = projectDetails[projectId];
+    
+    if (project) {
+        detailContent.innerHTML = `
+            <h2>${project.title}</h2>
+            <p class="project-subtitle">${project.subtitle}</p>
+            
+            <div class="project-section">
+                <h3>📋 Project Overview</h3>
+                <p>${project.overview}</p>
+            </div>
+            
+            ${project.techStack ? `
+            <div class="project-section">
+                <h3>🛠️ Technologies Used</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1rem;">
+                    ${Object.entries(project.techStack).map(([layer, techs]) => `
+                        <div>
+                            <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem;">
+                                ${layer}:
+                            </h4>
+                            <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
+                                ${techs.map(tech => {
+                                    const isKeyTech = ['PowerBI', 'Spark', 'Hive', 'Hadoop HDFS'].includes(tech);
+                                    return `<span style="background: ${isKeyTech ? 'linear-gradient(135deg, #4dd0e1, #0277bd)' : '#4dd0e1'}; color: white; padding: 0.3rem 0.6rem; border-radius: 12px; font-size: ${isKeyTech ? '0.9rem' : '0.8rem'}; font-weight: ${isKeyTech ? '600' : '500'};">
+                                        ${isKeyTech ? '🌟' : ''} ${tech}
+                                    </span>`;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.dataModel ? `
+            <div class="project-section">
+                <h3>📁 Core Data Model Design</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    ${Object.entries(project.dataModel).map(([tableName, tableInfo]) => `
+                        <div style="padding: 0.8rem; background: #f8fdfe; border-radius: 8px; border-left: 3px solid #4dd0e1;">
+                            <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem;">
+                                ${tableInfo.description} - <code style="background: rgba(77, 208, 225, 0.1); padding: 0.1rem 0.4rem; border-radius: 4px; font-size: 0.8rem;">${tableName}</code>
+                            </h4>
+                            <ul style="margin: 0; padding-left: 1.2rem; color: #2c3e50; line-height: 1.6; font-size: 0.85rem;">
+                                ${tableInfo.fields.map(field => `<li style="margin-bottom: 0.25rem;">${field}</li>`).join('')}
+                            </ul>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.dataArchitecture ? `
+            <div class="project-section">
+                <h3>📊 Five-Layer Data Warehouse Architecture</h3>
+                ${Object.entries(project.dataArchitecture).map(([layerName, layerInfo], index) => {
+                    const colors = [
+                        { border: '#ff6b6b', bg: '#fff5f5' }, // ODS - Red
+                        { border: '#ff9f40', bg: '#fff8f0' }, // DWD - Orange
+                        { border: '#feca57', bg: '#fffef5' }, // DWS - Yellow
+                        { border: '#48dbfb', bg: '#f0fdff' }, // DIM - Light Blue
+                        { border: '#54a0ff', bg: '#f5f9ff' }  // ADS - Blue
+                    ];
+                    const color = colors[index];
+                    return `
+                    <div style="padding: 0.8rem; background: ${color.bg}; border-radius: 6px; border-left: 3px solid ${color.border}; margin-bottom: 0.8rem;">
+                        <h4 style="color: ${color.border}; font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem;">
+                            ${layerInfo.name}
+                        </h4>
+                        <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.5; margin: 0.3rem 0;">
+                            <strong>Function:</strong> ${layerInfo.function}
+                        </p>
+                        ${layerInfo.content ? `
+                            <div style="color: #2c3e50; font-size: 0.8rem; line-height: 1.4; margin-top: 0.5rem;">
+                                ${layerInfo.content}
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+                }).join('')}
+            </div>
+            ` : ''}
+            
+            <div class="project-section">
+                <h3>💡 Project Impact</h3>
+                <p>${project.impact}</p>
+            </div>
+            
+            <div class="project-section">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div>
+                        <h3>⏱️ Duration</h3>
+                        <p style="font-size: 1.1rem; color: #4dd0e1; font-weight: 500;">${project.duration}</p>
+                    </div>
+                    <div>
+                        <h3>👤 Role</h3>
+                        <p style="font-size: 1.1rem; color: #4dd0e1; font-weight: 500;">${project.role}</p>
+                    </div>
+                </div>
+            </div>
+        `;
+        detailPanel.classList.add('active');
+    }
+}
+
+function closeProjectDetail() {
+    const detailPanel = document.getElementById('projectDetailPanel');
+    detailPanel.classList.remove('active');
+}
+
+// 添加项目卡片点击事件
+document.addEventListener('DOMContentLoaded', () => {
+    const projectCards = document.querySelectorAll('.project-card[data-project]');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const projectId = card.getAttribute('data-project');
+            openProjectDetail(projectId);
+        });
+    });
+});
+
