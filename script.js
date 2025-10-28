@@ -316,7 +316,7 @@ window.onclick = function(event) {
 const projectDetails = {
     'mobile-behavior': {
         title: '📊 Mobile User Behavior Data Analysis and Visualization Project',
-        subtitle: 'Company: China Mobile • Time: June 2024 - Aug 2024',
+        subtitle: 'Company: China Mobile<br>Time: June 2024 - Aug 2024',
         coverImage: 'mobile_user_behavior_dashboard.png',
         overview: 'An enterprise-level big data project completed at China Mobile Information Technology Center, building a comprehensive mobile user behavior data analysis platform. The two-week project processed massive user behavior data, achieving complete transformation from raw data to business insights through an end-to-end data pipeline.',
         technologies: ['Big Data', 'Python', 'SQL', 'Data Visualization', 'Hadoop', 'Spark'],
@@ -354,6 +354,33 @@ const projectDetails = {
                 content: '<strong>Output:</strong> ads_user_behavior_profile • ads_travel_pattern_daily • ads_scenic_spot_ranking • ads_transportation_analysis'
             }
         },
+        dataVisualization: {
+            title: '📊 Data Visualization-PowerBI Dashboard',
+            scenarios: [
+                {
+                    title: 'Scenario 1: National Day Holiday Travel Analysis',
+                    goal: 'Gain insights into user holiday travel patterns, optimize tourism resource allocation',
+                    metrics: [
+                        'Usage proportion of various transportation modes (train, car, bus, airplane)',
+                        'Popular scenic spot rankings and geographic distribution',
+                        'Travel time concentration analysis'
+                    ],
+                    image: 'National Day Holiday Travel Analysis.png',
+                    results: ''
+                },
+                {
+                    title: 'Scenario 2: Mobile User Behavior Deep Insights',
+                    goal: 'Build 360-degree user profiles, support precision marketing and product optimization',
+                    dimensions: [
+                        'User Engagement Analysis: DAU/MAU, session duration, feature usage frequency',
+                        'Business Preference Analysis: Service plan usage, feature popularity ranking',
+                        'Value Segmentation: RFM model user segmentation, lifecycle stage identification'
+                    ],
+                    image: 'Mobile User Behavior Deep Insights.png',
+                    results: ''
+                }
+            ]
+        },
         dataModel: {
             'users': {
                 description: 'User Dimension Table',
@@ -376,19 +403,29 @@ const projectDetails = {
                 purpose: 'Travel preference analysis, transportation mode statistics'
             }
         },
-        impact: 'Successfully processed terabytes of user behavior data, providing real-time insights for business decision-making and enhancing user experience optimization.',
-        duration: 'two months',
-        role: 'Data Engineer & Analyst'
+        impact: `✅ End-to-End Data Pipeline: Mastered complete big data workflow from Kafka/Flume to PowerBI visualization
+✅ Data Warehouse Architecture: Built optimized five-layer data warehouse (ODS→DWD→DWS→DIM→ADS)
+✅ Large-Scale Processing: Handled 10M+ daily records with performance tuning and optimization
+✅ BI Dashboard Development: Created interactive PowerBI dashboards with MySQL integration`,
     },
-    'fx-trading-strategy': {
-        title: '💹 Dynamic Strategy Selection for FX & Commodity Futures Trading',
-        subtitle: 'Quantitative Trading Analysis',
-        coverImage: 'fx_trading_strategy_cover.png',
-        overview: 'A quantitative trading strategy project focused on developing dynamic strategy selection models for foreign exchange (FX) and commodity futures trading. This project involved comprehensive market analysis, risk management, and algorithmic trading system development to optimize trading performance across different market conditions.',
-        technologies: ['Python', 'Quantitative Analysis', 'Risk Management', 'Algorithmic Trading', 'Market Analysis'],
-        impact: 'Developed robust trading strategies that demonstrated consistent performance across various market regimes, with emphasis on risk-adjusted returns and capital preservation.',
+    'neural-news': {
+        title: '🧠 Neural News Recommendation System with LLM Explanation',
+        subtitle: 'AI-Powered Content Recommendation<br>Time: Sep 2024 - Nov 2024',
+        overview: 'Developed an intelligent news recommendation system that leverages neural networks and large language models to provide personalized content suggestions with explainable AI features. The system combines collaborative filtering, content-based filtering, and deep learning techniques to deliver accurate recommendations with natural language explanations.',
+        technologies: ['LLM', 'Neural Networks', 'NLP', 'Python', 'TensorFlow', 'Recommendation Systems'],
+        techStack: {
+            'Model Architecture': ['Transformer', 'BERT', 'Neural Collaborative Filtering'],
+            'Data Processing': ['Python', 'Pandas', 'NumPy', 'Scikit-learn'],
+            'Deep Learning': ['TensorFlow', 'PyTorch', 'Keras'],
+            'NLP & LLM': ['OpenAI API', 'Hugging Face', 'NLTK', 'spaCy'],
+            'Infrastructure': ['Flask', 'Docker', 'AWS', 'MySQL']
+        },
+        impact: `✅ Neural Architecture: Implemented hybrid recommendation model combining collaborative and content-based filtering
+✅ LLM Integration: Integrated GPT-3.5 for generating natural language explanations of recommendations
+✅ Performance Optimization: Achieved 85%+ recommendation accuracy with sub-second response times
+✅ Explainable AI: Developed interpretable recommendation system with user-friendly explanations`,
         duration: '3 months',
-        role: 'Quantitative Analyst'
+        role: 'ML Engineer & AI Researcher'
     }
 };
 
@@ -479,21 +516,55 @@ function openProjectDetail(projectId) {
             </div>
             ` : ''}
             
+            ${project.dataVisualization ? `
             <div class="project-section">
-                <h3>💡 Project Impact</h3>
-                <p>${project.impact}</p>
+                <h3>${project.dataVisualization.title}</h3>
+                ${project.dataVisualization.scenarios.map(scenario => `
+                    <div style="margin-bottom: 2rem; padding: 1.2rem; background: #f8fdfe; border-radius: 8px; border-left: 4px solid #4dd0e1;">
+                        <h4 style="color: #0277bd; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.8rem;">
+                            ${scenario.title}
+                        </h4>
+                        <p style="color: #2c3e50; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.8rem;">
+                            <strong>Analysis Goal:</strong> ${scenario.goal}
+                        </p>
+                        ${scenario.metrics ? `
+                            <div style="margin-bottom: 0.8rem;">
+                                <strong style="color: #2c3e50; font-size: 0.9rem;">Core Metrics:</strong>
+                                <ul style="margin: 0.5rem 0 0 1.5rem; padding: 0; color: #2c3e50; line-height: 1.6; font-size: 0.85rem;">
+                                    ${scenario.metrics.map(metric => `<li style="margin-bottom: 0.3rem;">${metric}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        ${scenario.dimensions ? `
+                            <div style="margin-bottom: 0.8rem;">
+                                <strong style="color: #2c3e50; font-size: 0.9rem;">Analysis Dimensions:</strong>
+                                <ul style="margin: 0.5rem 0 0 1.5rem; padding: 0; color: #2c3e50; line-height: 1.6; font-size: 0.85rem;">
+                                    ${scenario.dimensions.map(dimension => `<li style="margin-bottom: 0.3rem;">${dimension}</li>`).join('')}
+                                </ul>
+                            </div>
+                        ` : ''}
+                        <div style="background: white; padding: 0.8rem; border-radius: 6px; margin-top: 0.8rem;">
+                            <strong style="color: #4dd0e1; font-size: 0.9rem;">Visualization Results:</strong>
+                            ${scenario.image ? `
+                                <div style="margin: 0.8rem 0;">
+                                    <img src="${scenario.image}" alt="${scenario.title}" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" />
+                                </div>
+                            ` : ''}
+                            ${scenario.results ? `
+                                <p style="margin: 0.5rem 0 0 0; color: #2c3e50; font-size: 0.85rem; line-height: 1.6;">
+                                    ${scenario.results}
+                                </p>
+                            ` : ''}
+                        </div>
+                    </div>
+                `).join('')}
             </div>
+            ` : ''}
             
             <div class="project-section">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                    <div>
-                        <h3>⏱️ Duration</h3>
-                        <p style="font-size: 1.1rem; color: #4dd0e1; font-weight: 500;">${project.duration}</p>
-                    </div>
-                    <div>
-                        <h3>👤 Role</h3>
-                        <p style="font-size: 1.1rem; color: #4dd0e1; font-weight: 500;">${project.role}</p>
-                    </div>
+                <h3>💡 Project Impact</h3>
+                <div style="line-height: 1.8; font-size: 0.95rem; color: #2c3e50;">
+                    ${project.impact.split('\n').map(line => `<div style="margin-bottom: 0.8rem;">${line}</div>`).join('')}
                 </div>
             </div>
         `;
