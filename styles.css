@@ -12,6 +12,9 @@ body {
     background: #fefefe;
     margin: 0;
     padding: 0;
+    letter-spacing: 0.02em;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
 }
 
 /* 主布局 */
@@ -458,6 +461,7 @@ body {
     color: #0277bd;
     position: relative;
     padding-bottom: 0.5rem;
+    letter-spacing: 0.02em;
 }
 
 .section-title::after {
@@ -599,6 +603,7 @@ body {
     position: relative;
     z-index: 2;
     animation: pulse 2s ease-in-out infinite;
+    letter-spacing: 0.02em;
 }
 
 @keyframes pulse {
@@ -768,13 +773,18 @@ body {
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid #4dd0e1;
+    letter-spacing: 0.02em;
 }
 
 .detail-panel-content .project-section p {
     font-size: 1rem;
     line-height: 1.8;
     color: #2c3e50;
-    text-align: justify;
+    text-align: left;
+    letter-spacing: 0.02em;
+    word-spacing: normal;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
 }
 
 .detail-panel-content .project-tech-badges {
@@ -907,6 +917,7 @@ body {
     font-weight: 600;
     color: #0277bd;
     margin: 0 0 0.5rem 0;
+    letter-spacing: 0.02em;
 }
 
 .project-info p {
@@ -922,6 +933,7 @@ body {
     background: rgba(77, 208, 225, 0.1);
     padding: 0.3rem 0.8rem;
     border-radius: 12px;
+    letter-spacing: 0.02em;
 }
 
 /* 模态框样式 */

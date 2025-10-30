@@ -410,20 +410,53 @@ const projectDetails = {
     },
     'neural-news': {
         title: '🧠 Neural News Recommendation System with LLM Explanation',
-        subtitle: 'AI-Powered Content Recommendation<br>Time: Sep 2024 - Nov 2024',
-        overview: 'Developed an intelligent news recommendation system that leverages neural networks and large language models to provide personalized content suggestions with explainable AI features. The system combines collaborative filtering, content-based filtering, and deep learning techniques to deliver accurate recommendations with natural language explanations.',
-        technologies: ['LLM', 'Neural Networks', 'NLP', 'Python', 'TensorFlow', 'Recommendation Systems'],
+        subtitle: 'Time: Aug 2024 - May 2025',
+        coverImage: 'NAML.png',
+        overview: 'This project aims to build a transparent, interpretable, and personalized news recommendation system based on the <strong>MIND dataset</strong>, integrating the strengths of traditional recommendation algorithms with <strong>large language models (LLMs)</strong> to address the "black box" problem in conventional recommendation systems. The <strong>news recommendation system</strong> not only accurately recommends news content aligned with user interests but also provides <strong>natural language explanation</strong> for each recommendation, significantly enhancing user experience and system trustworthiness.',
+        technologies: ['LLM', 'Machine Learning', 'Python', 'Vue', 'Flask'],
+        dataProcessing: true,
+        algorithmComparison: {
+            models: [
+                {
+                    key: 'content-based',
+                    title: 'content-based',
+                    image: 'content_based.jpg',
+                    description: 'Served as a foundational baseline, recommending news based on TF-IDF textual similarity between user history and candidate articles.'
+                },
+                {
+                    key: 'dkn',
+                    title: 'DKN',
+                    image: 'dkn.jpg',
+                    description: 'Integrated external knowledge graphs to enrich news semantics, using a knowledge-aware CNN to model deep semantic relationships between entities.'
+                },
+                {
+                    key: 'nrms',
+                    title: 'NRMS',
+                    image: 'nrms.png',
+                    description: 'Leveraged Transformer-based self-attention to effectively encode news and user behavior sequences, capturing long-range dependencies and core interests.'
+                },
+                {
+                    key: 'naml',
+                    title: 'NAML',
+                    image: 'NAML.png',
+                    description: "Distinguished itself with an attentive multi-view learning architecture, dynamically fusing information from a news article's category, subcategory, title, and abstract."
+                }
+            ]
+        },
         techStack: {
-            'Model Architecture': ['Transformer', 'BERT', 'Neural Collaborative Filtering'],
+            'Model Architecture': ['Transformer', 'BERT'],
             'Data Processing': ['Python', 'Pandas', 'NumPy', 'Scikit-learn'],
-            'Deep Learning': ['TensorFlow', 'PyTorch', 'Keras'],
-            'NLP & LLM': ['OpenAI API', 'Hugging Face', 'NLTK', 'spaCy'],
-            'Infrastructure': ['Flask', 'Docker', 'AWS', 'MySQL']
+            'Deep Learning Frameworks': ['TensorFlow', 'PyTorch', 'Keras'],
+            'NLP & Large Language Models': ['DeepSeek API', 'OpenAI GPT', 'NLTK'],
+            'Frontend Technologies': ['Vue.js 3', 'JavaScript', 'HTML5', 'Element UI'],
+            'Backend & Infrastructure': ['Flask', 'AWS', 'MySQL'],
+            'Visualization Tools': ['FineBI']
         },
         impact: `✅ Neural Architecture: Implemented hybrid recommendation model combining collaborative and content-based filtering
 ✅ LLM Integration: Integrated GPT-3.5 for generating natural language explanations of recommendations
 ✅ Performance Optimization: Achieved 85%+ recommendation accuracy with sub-second response times
-✅ Explainable AI: Developed interpretable recommendation system with user-friendly explanations`,
+✅ Explainable AI: Developed interpretable recommendation system with user-friendly explanations
+✅ Full-Stack Development: Built responsive Vue.js frontend with Flask backend API`,
         duration: '3 months',
         role: 'ML Engineer & AI Researcher'
     }
@@ -460,6 +493,75 @@ function openProjectDetail(projectId) {
                                         ${isKeyTech ? '🌟' : ''} ${tech}
                                     </span>`;
                                 }).join('')}
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.dataProcessing ? `
+            <div class="project-section">
+                <h3 style="letter-spacing: 0.02em;">📊 Data Processing & Analysis (NumPy & Pandas)</h3>
+                <p style="margin-bottom: 1.5rem; line-height: 1.6; color: #2c3e50; letter-spacing: 0.02em;">
+                    Based on <strong>NumPy</strong> and <strong>Pandas</strong> Execute comprehensive data for the MIND dataset to build a robust foundation for recommendation:
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <div style="padding: 1rem; background: #f8fdfe; border-radius: 8px; border-left: 3px solid #4dd0e1;">
+                        <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.02em;">
+                            Data Clean & Conversion
+                        </h4>
+                        <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                            Converted raw TSV files to CSV format and handled missing values to ensure data integrity.
+                        </p>
+                    </div>
+                    <div style="padding: 1rem; background: #f8fdfe; border-radius: 8px; border-left: 3px solid #4dd0e1;">
+                        <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.02em;">
+                            User Behavior Sequencing
+                        </h4>
+                        <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                            Processed and structured user clickstream logs into a sequential user-news interaction table.
+                        </p>
+                    </div>
+                    <div style="padding: 1rem; background: #f8fdfe; border-radius: 8px; border-left: 3px solid #4dd0e1;">
+                        <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.02em;">
+                            Multi-View Feature Integration
+                        </h4>
+                        <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                            Fused multi-dimensional news features, including category, subcategory, title, and abstract etc.
+                        </p>
+                    </div>
+                    <div style="padding: 1rem; background: #f8fdfe; border-radius: 8px; border-left: 3px solid #4dd0e1;">
+                        <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin-bottom: 0.6rem; letter-spacing: 0.02em;">
+                            Dataset Preparation
+                        </h4>
+                        <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                            Performed vectorization and dataset splitting for training and evaluating four distinct recommendation models.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.algorithmComparison ? `
+            <div class="project-section">
+                <h3 style="letter-spacing: 0.02em;">🧠 Deep Learning  Research & Comparison</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.6; color: #2c3e50; letter-spacing: 0.02em;">
+                    This project involved the reproduction and evaluation of four news recommendation algorithms to identify the optimal model for the system's core engine.
+                </p>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    ${project.algorithmComparison.models.map(m => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <div style="height: 160px; overflow: hidden; background: #f8fdfe;">
+                                <img src="${m.image}" alt="${m.title}" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+                            </div>
+                            <div style="padding: 0.9rem 1rem;">
+                                <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 700; margin: 0 0 0.4rem 0; letter-spacing: 0.02em;">
+                                    ${m.title}
+                                </h4>
+                                <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                                    ${m.description}
+                                </p>
                             </div>
                         </div>
                     `).join('')}
