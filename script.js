@@ -443,6 +443,84 @@ const projectDetails = {
                 }
             ]
         },
+        llmPrompt: {
+            items: [
+                {
+                    title: 'Role & Workflow Definition',
+                    description: 'Designed structured prompts to instruct the LLM to act as a "news recommendation expert" and follow a chain-of-thought process: "analyze history → understand content → generate recommendations → write explanations".',
+                    image: 'prompt.png'
+                },
+                {
+                    title: 'Dynamic Context Construction',
+                    description: 'Dynamically populated the prompt with multi-dimensional data, including user behavior history, news titles, and categories, to provide precise reasoning context for the LLM.'
+                },
+                {
+                    title: 'Testing & Refinement',
+                    description: 'Improved prompts through multiple test rounds and manual checks to ensure quality explanations.'
+                },
+                {
+                    title: 'API Integration',
+                    description: 'Connected optimized prompts with DeepSeek API for automated explanation generation.',
+                    image: 'API.png'
+                }
+            ]
+        },
+        fullStack: [
+            { title: 'Frontend', description: 'Vue3 + Element UI + VueX' },
+            { title: 'Backend', description: 'Flask RESTful APIs' },
+            { title: 'Database', description: 'MySQL with E-R Modeling' },
+            { title: 'Visualization', description: 'FineBI Dashboards' }
+        ],
+        systemFeatures: [
+            {
+                title: 'User Authentication',
+                description: 'Account verification and session management.',
+                image: 'user_authen.png'
+            },
+            {
+                title: 'Insight-Driven Recommendation',
+                description: 'LLM-powered personalized news recommendations with explanations.',
+                image: 'insight.png'
+            },
+            {
+                title: 'Multi-View Content Recommendation',
+                description: 'NAML model combining tags and user history for deeper personalization.',
+                images: ['multiview1.jpg', 'multiview2.jpg']
+            },
+            {
+                title: 'Explanation Generation',
+                description: 'DeepSeek generates a natural language explanation for each recommendation.',
+                image: 'explaination.png'
+            },
+            {
+                title: 'Browsing History',
+                description: 'Track, search, and visualize user interaction journeys.',
+                image: 'history.png'
+            },
+            {
+                title: 'News Visualization',
+                description: 'FineBI dashboards reveal category distribution and trend analytics.',
+                image: 'visualization.png'
+            }
+        ],
+        impactHighlights: [
+            {
+                title: 'Transparent AI',
+                description: 'Transformed black-box recommendations into interpretable results, boosting user trust.'
+            },
+            {
+                title: 'Better Experience',
+                description: 'Dual-mode recommendations (LLM + NAML) deliver personalized, diverse content.'
+            },
+            {
+                title: 'Technical Innovation',
+                description: 'Successfully merged LLMs with recommendation algorithms in scalable architecture.'
+            },
+            {
+                title: 'Production Ready',
+                description: 'Full-stack web application demonstrating real-world deployment potential.'
+            }
+        ],
         techStack: {
             'Model Architecture': ['Transformer', 'BERT'],
             'Data Processing': ['Python', 'Pandas', 'NumPy', 'Scikit-learn'],
@@ -569,6 +647,50 @@ function openProjectDetail(projectId) {
             </div>
             ` : ''}
             
+            ${project.llmPrompt ? `
+            <div class="project-section">
+                <h3 style="letter-spacing: 0.02em;">🎯 LLM Prompt & Optimization</h3>
+                ${project.llmPrompt.items.some(item => item.image) ? `
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1rem;">
+                    ${project.llmPrompt.items.filter(item => item.image).map(item => `
+                        <div style="flex: 1 1 300px; max-width: 360px; display: flex; flex-direction: column; align-items: center; gap: 0.6rem;">
+                            <img src="${item.image}" alt="${item.title}" style="width: 100%; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.12);" />
+                            <span style="color: #0277bd; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;">${item.title}</span>
+                        </div>
+                    `).join('')}
+                </div>
+                ` : ''}
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                    ${project.llmPrompt.items.map(item => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; padding: 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 0.6rem;">
+                            <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin: 0; letter-spacing: 0.02em;">
+                                ${item.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                                ${item.description}
+                            </p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            ${project.fullStack ? `
+            <div class="project-section">
+                <h3 style="letter-spacing: 0.02em;">🛠️ Full-Stack Development</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    ${project.fullStack.map(item => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h4 style="color: #0277bd; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.4rem 0; letter-spacing: 0.02em;">
+                                ${item.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                                ${item.description}
+                            </p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
             ${project.dataModel ? `
             <div class="project-section">
                 <h3>📁 Core Data Model Design</h3>
@@ -618,6 +740,35 @@ function openProjectDetail(projectId) {
             </div>
             ` : ''}
             
+            ${project.systemFeatures ? `
+            <div class="project-section">
+                <h3 style="letter-spacing: 0.02em;">🔧 System Architecture & Features</h3>
+                <div style="display: flex; flex-direction: column; gap: 1.2rem;">
+                    ${project.systemFeatures.map(feature => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); display: flex; flex-direction: column; gap: 0.8rem;">
+                            ${(feature.images ? `
+                                <div style="display: flex; gap: 0.8rem; flex-wrap: wrap; justify-content: center;">
+                                    ${feature.images.map(imgSrc => `
+                                        <img src="${imgSrc}" alt="${feature.title}" style="width: clamp(200px, 40%, 320px); border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+                                    `).join('')}
+                                </div>
+                            ` : feature.image ? `
+                                <div style="display: flex; justify-content: center;">
+                                    <img src="${feature.image}" alt="${feature.title}" style="width: clamp(220px, 60%, 420px); max-width: 100%; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.08);" />
+                                </div>
+                            ` : '')}
+                            <h4 style="color: #0277bd; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.4rem 0; letter-spacing: 0.02em;">
+                                ${feature.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                                ${feature.description}
+                            </p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
             ${project.dataVisualization ? `
             <div class="project-section">
                 <h3>${project.dataVisualization.title}</h3>
@@ -663,12 +814,23 @@ function openProjectDetail(projectId) {
             </div>
             ` : ''}
             
+            ${project.impactHighlights ? `
             <div class="project-section">
-                <h3>💡 Project Impact</h3>
-                <div style="line-height: 1.8; font-size: 0.95rem; color: #2c3e50;">
-                    ${project.impact.split('\n').map(line => `<div style="margin-bottom: 0.8rem;">${line}</div>`).join('')}
+                <h3 style="letter-spacing: 0.02em;">💡 Project Impact</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem;">
+                    ${project.impactHighlights.map(item => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h4 style="color: #0277bd; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.4rem 0; letter-spacing: 0.02em;">
+                                ${item.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0; letter-spacing: 0.02em;">
+                                ${item.description}
+                            </p>
+                        </div>
+                    `).join('')}
                 </div>
             </div>
+            ` : ''}
         `;
         detailPanel.classList.add('active');
     }
