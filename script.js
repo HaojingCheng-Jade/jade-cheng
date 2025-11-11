@@ -257,6 +257,27 @@ const projectData = {
     }
 };
 
+const lifeGalleries = {
+    'myworld': {
+        title: '🌟 Welcome to My World',
+        images: [
+            'life_pic/058763abcf2287d735dc4900553a5a89.jpg',
+            'life_pic/090c2dab7f62df87507b035728d503fb.jpg',
+            'life_pic/09d7d209e7f78963c8c9b7b278e1b72a.jpg',
+            'life_pic/34c52b76426f3e29eeb381d216eec6dc.jpg',
+            'life_pic/52321efccef4ac750555810de11c189d.jpg',
+            'life_pic/5f0691a5a7f883d43643a8dcc78eab80.jpg',
+            'life_pic/6154c08b1b2db436b5891074cf7ec9d0.jpg',
+            'life_pic/7d74835471d06bd1da3a7cfb7880fa0e.jpg',
+            'life_pic/821347e3c88c727e4b2e3c689270b723.jpg',
+            'life_pic/9e9ec0a3f9d7bba89206e7127aec3966.jpg',
+            'life_pic/d702fef82b8b7590fa5c45c12303c5d3.jpg',
+            'life_pic/e1c80bd5f642211286c1d337041857c7.jpg',
+            'life_pic/e72763bd6738f8eb5d17a3d9539cb8ba.jpg'
+        ]
+    }
+};
+
 function openProjectModal(projectId) {
     const modal = document.getElementById('projectModal');
     const modalContent = document.getElementById('modalContent');
@@ -306,9 +327,15 @@ function closeProjectModal() {
 
 // 点击模态框外部关闭
 window.onclick = function(event) {
-    const modal = document.getElementById('projectModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
+    const projectModal = document.getElementById('projectModal');
+    const lifeGalleryModal = document.getElementById('lifeGalleryModal');
+
+    if (event.target === projectModal) {
+        projectModal.style.display = 'none';
+    }
+
+    if (event.target === lifeGalleryModal) {
+        lifeGalleryModal.style.display = 'none';
     }
 }
 
@@ -852,4 +879,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+function openLifeGallery(galleryId) {
+    const gallery = lifeGalleries[galleryId];
+    const modal = document.getElementById('lifeGalleryModal');
+    const content = document.getElementById('lifeGalleryContent');
+
+    if (gallery && modal && content) {
+        content.innerHTML = `
+            <div class="life-gallery-header">
+                <h2>${gallery.title}</h2>
+            </div>
+            <div class="life-gallery-grid">
+                ${gallery.images.map(image => `
+                    <div class="life-gallery-item">
+                        <img src="${image}" alt="Life moment photo" />
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        modal.style.display = 'block';
+    }
+}
+
+function closeLifeGallery() {
+    const modal = document.getElementById('lifeGalleryModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryTriggers = document.querySelectorAll('.kitty-info.kitty-gallery-trigger');
+    galleryTriggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const galleryId = trigger.getAttribute('data-gallery');
+            openLifeGallery(galleryId);
+        });
+    });
+});
+
 
