@@ -275,6 +275,15 @@ const lifeGalleries = {
             'life_pic/e1c80bd5f642211286c1d337041857c7.jpg',
             'life_pic/e72763bd6738f8eb5d17a3d9539cb8ba.jpg'
         ]
+    },
+    'kitty': {
+        title: '😼 Not a normal cat',
+        images: [
+            'offer/1b369c835361f86c6021d098e5e1c6fe.jpg',
+            'offer/4ed49fe0b2bdec35b534051cec489de8.jpg',
+            'offer/5e63b734d622ed05b1eea373d27b0e52.jpg',
+            'offer/5f3f471e6badf5b2d44cbebea0c9dea7.jpg'
+        ]
     }
 };
 
