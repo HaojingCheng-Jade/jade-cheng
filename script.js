@@ -401,7 +401,7 @@ const projectDetails = {
                         'Popular scenic spot rankings and geographic distribution',
                         'Travel time concentration analysis'
                     ],
-                    image: 'National Day Holiday Travel Analysis.png',
+                    image: 'mobileuser/National Day Holiday Travel Analysis.png',
                     results: ''
                 },
                 {
@@ -412,7 +412,7 @@ const projectDetails = {
                         'Business Preference Analysis: Service plan usage, feature popularity ranking',
                         'Value Segmentation: RFM model user segmentation, lifecycle stage identification'
                     ],
-                    image: 'Mobile User Behavior Deep Insights.png',
+                    image: 'mobileuser/Mobile User Behavior Deep Insights.png',
                     results: ''
                 }
             ]
@@ -447,7 +447,7 @@ const projectDetails = {
     'neural-news': {
         title: '🧠 Neural News Recommendation System with LLM Explanation',
         subtitle: 'Time: Aug 2024 - May 2025',
-        coverImage: 'NAML.png',
+        coverImage: 'LLM/NAML.png',
         overview: 'This project aims to build a transparent, interpretable, and personalized news recommendation system based on the <strong>MIND dataset</strong>, integrating the strengths of traditional recommendation algorithms with <strong>large language models (LLMs)</strong> to address the "black box" problem in conventional recommendation systems. The <strong>news recommendation system</strong> not only accurately recommends news content aligned with user interests but also provides <strong>natural language explanation</strong> for each recommendation, significantly enhancing user experience and system trustworthiness.',
         technologies: ['LLM', 'Machine Learning', 'Python', 'Vue', 'Flask'],
         dataProcessing: true,
@@ -456,25 +456,25 @@ const projectDetails = {
                 {
                     key: 'content-based',
                     title: 'content-based',
-                    image: 'content_based.jpg',
+                    image: 'LLM/content_based.jpg',
                     description: 'Served as a foundational baseline, recommending news based on TF-IDF textual similarity between user history and candidate articles.'
                 },
                 {
                     key: 'dkn',
                     title: 'DKN',
-                    image: 'dkn.jpg',
+                    image: 'LLM/dkn.jpg',
                     description: 'Integrated external knowledge graphs to enrich news semantics, using a knowledge-aware CNN to model deep semantic relationships between entities.'
                 },
                 {
                     key: 'nrms',
                     title: 'NRMS',
-                    image: 'nrms.png',
+                    image: 'LLM/nrms.png',
                     description: 'Leveraged Transformer-based self-attention to effectively encode news and user behavior sequences, capturing long-range dependencies and core interests.'
                 },
                 {
                     key: 'naml',
                     title: 'NAML',
-                    image: 'NAML.png',
+                    image: 'LLM/NAML.png',
                     description: "Distinguished itself with an attentive multi-view learning architecture, dynamically fusing information from a news article's category, subcategory, title, and abstract."
                 }
             ]
@@ -484,7 +484,7 @@ const projectDetails = {
                 {
                     title: 'Role & Workflow Definition',
                     description: 'Designed structured prompts to instruct the LLM to act as a "news recommendation expert" and follow a chain-of-thought process: "analyze history → understand content → generate recommendations → write explanations".',
-                    image: 'prompt.png'
+                    image: 'LLM/prompt.png'
                 },
                 {
                     title: 'Dynamic Context Construction',
@@ -497,7 +497,7 @@ const projectDetails = {
                 {
                     title: 'API Integration',
                     description: 'Connected optimized prompts with DeepSeek API for automated explanation generation.',
-                    image: 'API.png'
+                    image: 'LLM/API.png'
                 }
             ]
         },
@@ -511,32 +511,37 @@ const projectDetails = {
             {
                 title: 'User Authentication',
                 description: 'Account verification and session management.',
-                image: 'user_authen.png'
+                image: 'LLM/userauthencation.png'
             },
             {
                 title: 'Insight-Driven Recommendation',
                 description: 'LLM-powered personalized news recommendations with explanations.',
-                image: 'insight.png'
+                image: 'LLM/insight.png'
             },
             {
                 title: 'Multi-View Content Recommendation',
                 description: 'NAML model combining tags and user history for deeper personalization.',
-                images: ['multiview1.jpg', 'multiview2.jpg']
+                images: ['LLM/multiview1.jpg', 'LLM/multiview2.jpg']
             },
             {
                 title: 'Explanation Generation',
                 description: 'DeepSeek generates a natural language explanation for each recommendation.',
-                image: 'explaination.png'
+                image: 'LLM/explaination.png'
             },
             {
                 title: 'Browsing History',
                 description: 'Track, search, and visualize user interaction journeys.',
-                image: 'history.png'
+                image: 'LLM/history.png'
             },
             {
                 title: 'News Visualization',
                 description: 'FineBI dashboards reveal category distribution and trend analytics.',
-                image: 'visualization.png'
+                image: 'LLM/datavisualization.png'
+            },
+            {
+                title: 'Administrator User Management',
+                description: 'Comprehensive admin panel for user account management and system administration.',
+                image: 'LLM/usermanage.png'
             }
         ],
         impactHighlights: [
