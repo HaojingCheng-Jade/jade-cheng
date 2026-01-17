@@ -1189,4 +1189,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// 简历模态框功能
+function openResumeModal() {
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.style.display = 'block';
+    }
+}
+
+function closeResumeModal() {
+    const modal = document.getElementById('resumeModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// 点击模态框外部关闭
+window.addEventListener('click', (event) => {
+    const resumeModal = document.getElementById('resumeModal');
+    if (event.target === resumeModal) {
+        closeResumeModal();
+    }
+});
+
 

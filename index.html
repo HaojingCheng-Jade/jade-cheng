@@ -64,9 +64,13 @@
             <!-- 简历下载 -->
             <div class="resume-section">
                 <h3>My Resume</h3>
-                <a href="resume/Jade_Cheng_Resume.pdf" class="resume-link" target="_blank">
+                <a href="resume/Jade_Resume_DS.pdf" class="resume-link" target="_blank">
                     <i class="fas fa-file-pdf"></i>
-                    <span>Jade_Cheng_Resume.pdf</span>
+                    <span>Jade_Resume_DS.pdf</span>
+                </a>
+                <a href="resume/Jade_Resume_DA.pdf" class="resume-link" target="_blank" style="margin-top: 0.8rem;">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Jade_Resume_DA.pdf</span>
                 </a>
             </div>
 
@@ -128,9 +132,9 @@
 
             <!-- 实习标语 -->
             <section class="internship-banner">
-                <a href="resume/Jade_Cheng_Resume.pdf" target="_blank" class="banner-link">
+                <a href="#" class="banner-link" onclick="openResumeModal(); return false;">
                     <div class="banner-content">
-                        <h2 class="banner-title">Seeking Summer '26 DS Internship!🙋🏻‍♀️</h2>
+                        <h2 class="banner-title">Seeking Summer '26 DS DA Internship!🙋🏻‍♀️</h2>
                     </div>
                 </a>
             </section>
@@ -336,6 +340,38 @@
         <div class="modal-content life-gallery-modal">
             <span class="close" onclick="closeLifeGallery()">&times;</span>
             <div id="lifeGalleryContent"></div>
+        </div>
+    </div>
+
+    <!-- 简历模态框 -->
+    <div id="resumeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeResumeModal()">&times;</span>
+            <div id="resumeModalContent">
+                <h2 style="color: #0277bd; margin-bottom: 1.5rem; text-align: center;">Select Resume Version</h2>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <a href="resume/Jade_Resume_DS.pdf" target="_blank" class="resume-modal-link" onclick="closeResumeModal()">
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: linear-gradient(135deg, #4dd0e1, #0277bd); border-radius: 12px; text-decoration: none; color: white; transition: all 0.3s ease;">
+                            <i class="fas fa-file-pdf" style="font-size: 2rem;"></i>
+                            <div style="flex: 1;">
+                                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem;">Data Scientist Resume</h3>
+                                <p style="margin: 0; opacity: 0.9;">Jade_Resume_DS.pdf</p>
+                            </div>
+                            <i class="fas fa-external-link-alt" style="font-size: 1.2rem;"></i>
+                        </div>
+                    </a>
+                    <a href="resume/Jade_Resume_DA.pdf" target="_blank" class="resume-modal-link" onclick="closeResumeModal()">
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 1.5rem; background: linear-gradient(135deg, #4dd0e1, #0277bd); border-radius: 12px; text-decoration: none; color: white; transition: all 0.3s ease;">
+                            <i class="fas fa-file-pdf" style="font-size: 2rem;"></i>
+                            <div style="flex: 1;">
+                                <h3 style="margin: 0 0 0.5rem 0; font-size: 1.3rem;">Data Analyst Resume</h3>
+                                <p style="margin: 0; opacity: 0.9;">Jade_Resume_DA.pdf</p>
+                            </div>
+                            <i class="fas fa-external-link-alt" style="font-size: 1.2rem;"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 

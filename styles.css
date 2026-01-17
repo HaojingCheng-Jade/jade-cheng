@@ -981,6 +981,15 @@ body {
     color: #0277bd;
 }
 
+.resume-modal-link {
+    text-decoration: none;
+}
+
+.resume-modal-link > div:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(77, 208, 225, 0.4);
+}
+
 /* 教育经历区域 */
 .education-section {
     margin-bottom: 3rem;
