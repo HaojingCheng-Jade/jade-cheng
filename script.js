@@ -578,6 +578,144 @@ const projectDetails = {
 ✅ Full-Stack Development: Built responsive Vue.js frontend with Flask backend API`,
         duration: '3 months',
         role: 'ML Engineer & AI Researcher'
+    },
+    'aws-video-games': {
+        title: '🎮 Cloud-Based Video Games Sales Analytics Dashboard',
+        subtitle: 'AWS S3 → Athena → Power BI End-to-End Data Analytics Project',
+        coverImage: 'awspowerbi/dashboard_overview.png',
+        overview: 'This project presents a full cloud-based data analytics pipeline that transforms raw video game sales data into an interactive Power BI dashboard. The workflow integrates AWS cloud services, SQL-based querying, data validation and cleaning, and business intelligence visualization. The final dashboard enables users to explore publisher dominance, platform lifecycle trends, regional performance, and genre-based insights in a single interactive interface.',
+        technologies: ['AWS S3', 'Amazon Athena', 'Power BI', 'SQL', 'Data Analytics', 'ODBC'],
+        techStack: {
+            'Cloud Storage': ['AWS S3'],
+            'Query Engine': ['Amazon Athena'],
+            'Connectivity': ['Simba Athena ODBC Driver'],
+            'Data Processing': ['SQL', 'Excel (VLOOKUP, data validation)'],
+            'Visualization': ['Power BI'],
+            'Version Control': ['GitHub']
+        },
+        architecture: {
+            title: '🏗️ Architecture Overview',
+            layers: [
+                {
+                    name: 'Raw Data Files',
+                    description: 'Initial video game sales data in various formats'
+                },
+                {
+                    name: 'AWS S3 (Cloud Storage)',
+                    description: 'Centralized data repository in the cloud'
+                },
+                {
+                    name: 'Amazon Athena (Serverless SQL Query Engine)',
+                    description: 'Serverless interactive query service for analyzing data in S3'
+                },
+                {
+                    name: 'Simba Athena ODBC Connector',
+                    description: 'Driver enabling direct connectivity between Athena and Power BI'
+                },
+                {
+                    name: 'Power BI Desktop / Power BI Service',
+                    description: 'Business intelligence platform for data visualization'
+                },
+                {
+                    name: 'Interactive Business Dashboard',
+                    description: 'Final interactive dashboard for business insights'
+                }
+            ]
+        },
+        connectivity: {
+            title: '🔌 Connecting Athena to Power BI',
+            items: [
+                {
+                    title: 'ODBC Driver Configuration',
+                    description: 'Connected Amazon Athena to Power BI using the Simba Athena ODBC driver, enabling direct cloud-to-BI querying without intermediate data exports.'
+                },
+                {
+                    title: 'Authentication Setup',
+                    description: 'Configured authentication, AWS region, and schema mapping to ensure stable connectivity between services.'
+                }
+            ]
+        },
+        dataValidation: {
+            title: '✅ Data Validation Before Merging Tables',
+            items: [
+                {
+                    description: 'Verified column data types (numeric vs categorical)'
+                },
+                {
+                    description: 'Standardized column names and formatting'
+                },
+                {
+                    description: 'Validated join keys and removed duplicate records'
+                },
+                {
+                    description: 'Eliminated inconsistent or invalid entries'
+                }
+            ]
+        },
+        dataCleaning: {
+            title: '🧹 Data Cleaning & Enrichment (VLOOKUP)',
+            items: [
+                {
+                    title: 'Reference Table Matching',
+                    description: 'Used VLOOKUP to match reference tables and standardize publisher and platform names'
+                },
+                {
+                    title: 'Data Enrichment',
+                    description: 'Filled missing categorical values using VLOOKUP functions'
+                },
+                {
+                    title: 'Data Quality',
+                    description: 'Removed unmatched rows after validation to maintain data consistency'
+                }
+            ]
+        },
+        sqlExtraction: {
+            title: '📊 SQL-Based Metric Extraction',
+            description: 'Aggregated metrics by publisher, platform, region, genre, and decade using SQL. Reduced downstream calculations inside Power BI and produced analysis-ready datasets optimized for visualization.'
+        },
+        dashboardFeatures: {
+            title: '📈 Power BI Dashboard Development',
+            description: 'Built an interactive Power BI dashboard featuring:',
+            features: [
+                {
+                    title: 'KPI Cards',
+                    description: 'Summarizing overall market scale'
+                },
+                {
+                    title: 'Top Publishers Ranking',
+                    description: 'Ranked by global sales'
+                },
+                {
+                    title: 'Sales Distribution',
+                    description: 'By decade and platform'
+                },
+                {
+                    title: 'Global Sales Trends',
+                    description: 'Over time for major platforms'
+                },
+                {
+                    title: 'Genre Performance',
+                    description: 'By region analysis'
+                },
+                {
+                    title: 'Interactive Slicers',
+                    description: 'For Genre, Region, and Decade filtering'
+                }
+            ],
+            performance: 'Query-level filters were applied to improve dashboard performance and responsiveness.'
+        },
+        liveDashboard: {
+            title: '🌐 Live Dashboard',
+            description: 'Interactive Power BI Dashboard available online',
+            url: 'https://app.powerbi.com/view?r=eyJrIjoiZGNhZjAwMjEtMzJlYS00ZjRkLWEyN2EtODAwZmRkNDkzMzc3IiwidCI6ImNiNzJjNTRlLTRhMzEtNGQ5ZS1iMTRhLTFlYTM2ZGZhYzk0YyIsImMiOjF9'
+        },
+        impact: `✅ Cloud Integration: Built end-to-end analytics pipeline from AWS S3 to Power BI without data exports
+✅ Serverless Architecture: Leveraged Amazon Athena for scalable, cost-effective SQL querying
+✅ Data Quality: Implemented rigorous validation and cleaning processes ensuring data integrity
+✅ Business Intelligence: Created interactive dashboard with comprehensive game sales insights
+✅ Performance Optimization: Applied query-level filters for improved dashboard responsiveness`,
+        duration: '2 months',
+        role: 'Data Engineer & BI Developer'
     }
 };
 
@@ -595,6 +733,18 @@ function openProjectDetail(projectId) {
                 <h3>📋 Project Overview</h3>
                 <p>${project.overview}</p>
             </div>
+            
+            ${project.liveDashboard ? `
+            <div class="project-section">
+                <h3>${project.liveDashboard.title}</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.6; color: #2c3e50;">
+                    ${project.liveDashboard.description}
+                </p>
+                <a href="${project.liveDashboard.url}" target="_blank" style="display: inline-block; background: linear-gradient(135deg, #4dd0e1, #0277bd); color: white; padding: 0.8rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    🌐 View Live Dashboard →
+                </a>
+            </div>
+            ` : ''}
             
             ${project.techStack ? `
             <div class="project-section">
@@ -872,6 +1022,112 @@ function openProjectDetail(projectId) {
                 </div>
             </div>
             ` : ''}
+            
+            ${project.architecture ? `
+            <div class="project-section">
+                <h3>${project.architecture.title}</h3>
+                <div style="display: flex; flex-direction: column; gap: 0.8rem;">
+                    ${project.architecture.layers.map((layer, index) => `
+                        <div style="display: flex; align-items: center; gap: 1rem; padding: 0.8rem; background: #f8fdfe; border-radius: 8px; border-left: 3px solid #4dd0e1;">
+                            <span style="color: #0277bd; font-weight: 600; min-width: 30px; text-align: center;">${index < project.architecture.layers.length - 1 ? '⬇️' : ''}</span>
+                            <div style="flex: 1;">
+                                <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin: 0 0 0.3rem 0;">
+                                    ${layer.name}
+                                </h4>
+                                <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.5; margin: 0;">
+                                    ${layer.description}
+                                </p>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.connectivity ? `
+            <div class="project-section">
+                <h3>${project.connectivity.title}</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                    ${project.connectivity.items.map(item => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin: 0 0 0.4rem 0;">
+                                ${item.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0;">
+                                ${item.description}
+                            </p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.dataValidation ? `
+            <div class="project-section">
+                <h3>${project.dataValidation.title}</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.6; color: #2c3e50;">
+                    Before merging datasets, strict validation checks were performed to ensure data integrity:
+                </p>
+                <ul style="margin: 0; padding-left: 1.5rem; color: #2c3e50; line-height: 1.8;">
+                    ${project.dataValidation.items.map(item => `<li style="margin-bottom: 0.5rem;">${item.description}</li>`).join('')}
+                </ul>
+            </div>
+            ` : ''}
+            
+            ${project.dataCleaning ? `
+            <div class="project-section">
+                <h3>${project.dataCleaning.title}</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+                    ${project.dataCleaning.items.map(item => `
+                        <div style="background: #ffffff; border: 1px solid #e0f2f1; border-radius: 10px; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+                            <h4 style="color: #0277bd; font-size: 0.95rem; font-weight: 600; margin: 0 0 0.4rem 0;">
+                                ${item.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.6; margin: 0;">
+                                ${item.description}
+                            </p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+            ` : ''}
+            
+            ${project.sqlExtraction ? `
+            <div class="project-section">
+                <h3>${project.sqlExtraction.title}</h3>
+                <p style="line-height: 1.6; color: #2c3e50;">
+                    ${project.sqlExtraction.description}
+                </p>
+            </div>
+            ` : ''}
+            
+            ${project.dashboardFeatures ? `
+            <div class="project-section">
+                <h3>${project.dashboardFeatures.title}</h3>
+                <p style="margin-bottom: 1rem; line-height: 1.6; color: #2c3e50;">
+                    ${project.dashboardFeatures.description}
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-bottom: 1rem;">
+                    ${project.dashboardFeatures.features.map(feature => `
+                        <div style="background: #f8fdfe; border-left: 3px solid #4dd0e1; padding: 0.8rem; border-radius: 6px;">
+                            <h4 style="color: #0277bd; font-size: 0.9rem; font-weight: 600; margin: 0 0 0.3rem 0;">
+                                ${feature.title}
+                            </h4>
+                            <p style="color: #2c3e50; font-size: 0.85rem; line-height: 1.5; margin: 0;">
+                                ${feature.description}
+                            </p>
+                        </div>
+                    `).join('')}
+                </div>
+                ${project.dashboardFeatures.performance ? `
+                    <p style="color: #4dd0e1; font-size: 0.9rem; font-weight: 500; margin-top: 0.5rem;">
+                        💡 ${project.dashboardFeatures.performance}
+                    </p>
+                ` : ''}
+            </div>
+            ` : ''}
+            
+
         `;
         detailPanel.classList.add('active');
     }
